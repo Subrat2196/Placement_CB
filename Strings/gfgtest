@@ -1,0 +1,67 @@
+class Solution{
+    public:
+    
+    bool compare(int a,int b)
+    {
+        return a<b;
+    }
+    void solve(Node* root,vector<int> &v)
+    {
+        
+        if(!root)
+            return;
+        
+        solve(root->left,v);
+        
+        v.push_back(root->data);
+        
+        solve(root->right,v);
+        
+        return;
+    }
+    
+    int mean(Node* root, int key)
+    {
+        
+        
+        
+        if(root==NULL)
+            return -1;
+    
+        vector<int> v;
+        
+        
+        solve(root,v);
+        
+        
+        // bool val=binary_search(v.begin(),v.end(),key);
+        
+        // if(val==true)
+        //     return key;
+    
+        if(key>v[v.size()-1])
+            return (v[v.size()-1]-1)/2;
+        
+        if(key<v[0])
+            return (v[0]-1)/2;
+        
+        for(int i=0;i<v.size();i++)
+        {
+            if(v[i]==key)
+                return key;
+            else
+                continue;
+        }
+        
+        int i=0;
+        while(v[i]<key)
+        {
+            i++;
+        }
+        
+        return (v[i-1]+v[i])/2;
+        
+
+        // code here 
+    }
+};
