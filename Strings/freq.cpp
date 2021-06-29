@@ -30,7 +30,7 @@ int main()
 		}
 	}
 
-	cout<<ans<<" "<<maxf<<endl;
+	cout<<ans<<" "<<maxf<<endl; 
 
 
 	return 0;
